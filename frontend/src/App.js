@@ -1,6 +1,13 @@
 import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import './index.css';
-export const App = () => {
-  return <h1 className='text-3xl font-bold underline'>Hello World</h1>;
+const App = () => {
+  return (
+    <Routes>
+      <Route path='login' element={<Login />} />
+      <Route path='/' element={<Home />} />
+    </Routes>
+  );
 };
+
+export default App;
