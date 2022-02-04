@@ -5,17 +5,19 @@ import { FcGoogle } from 'react-icons/fc';
 import bgPicture from '../assessts/pexels-jakub-novacek-924824.jpg';
 
 const Login = () => {
-  const responseGoogle = (res) => {};
+  const responseGoogle = (res) => {
+    localStorage.setItem('user', JSON.stringify(res.profileObj));
+  };
   return (
     <div className='flex justify-start items-center flex-col h-screen'>
       <div className='relative w-full h-full'>
         <img src={bgPicture} className='w-full h-full object-cover' />
 
-        <diV className='absolute flex flex-col justify-center items-center top-0 left-0 right-0 bottom-0 bg-blackOverlay'>
+        <div className='absolute flex flex-col justify-center items-center top-0 left-0 right-0 bottom-0 bg-blackOverlay'>
           <div className='p-5'></div>
           <div className='shadow-2xl'>
             <GoogleLogin
-              clientId=''
+              clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
               render={(renderProps) => (
                 <button
                   type='button'
@@ -29,10 +31,10 @@ const Login = () => {
               )}
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
-              cookiePolicy='single_host_google'
+              cookiePolicy='single_host_origin'
             />
           </div>
-        </diV>
+        </div>
       </div>
     </div>
   );
