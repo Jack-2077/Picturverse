@@ -7,6 +7,15 @@ import bgPicture from '../assessts/pexels-jakub-novacek-924824.jpg';
 const Login = () => {
   const responseGoogle = (res) => {
     localStorage.setItem('user', JSON.stringify(res.profileObj));
+
+    const { name, googleId, imageUrl } = res.profileObj;
+
+    const doc = {
+      _id: googleId,
+      _type: 'user',
+      userName: name,
+      image: imageUrl,
+    };
   };
   return (
     <div className='flex justify-start items-center flex-col h-screen'>
