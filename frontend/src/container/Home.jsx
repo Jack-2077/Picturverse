@@ -2,6 +2,7 @@ import React, { useState, useRef, useRef, useEffect } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { HiMenu } from 'react-icons/hi';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 import { Sidebar, UserProfile } from '../components/index';
 import Pins from './Pins';
@@ -30,7 +31,7 @@ const Home = () => {
   return (
     <div className='flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'>
       <div className='hidden md:flex h-screen flex-initial'>
-        <Sidebar />
+        <Sidebar user={user && user} closeToggle={setToggleSidebar} />
       </div>
       <div className='flex md:hidden flex-row'>
         <HiMenu
@@ -54,7 +55,7 @@ const Home = () => {
               onClick={() => setToggleSidebar(false)}
             />
           </div>
-          <Sidebar />
+          <Sidebar user={user && user} closeToggle={setToggleSidebar} />
         </div>
       )}
     </div>
