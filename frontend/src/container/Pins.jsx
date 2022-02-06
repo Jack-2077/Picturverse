@@ -1,7 +1,10 @@
 import React from 'react';
+import {Routes, Route} from "react-router-dom"
 
 const Pins = () => {
-  return <div>Pins</div>;
+  return (
+    <
+  );
 };
 
 export default Pins;
